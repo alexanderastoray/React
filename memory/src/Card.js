@@ -3,6 +3,12 @@ import './Card.css'
 
 const HIDDEN_SYMBOL = '❓'
 
-const Card = () => <div class="card"></div>
+const Card = ({card, feedback, clickFonction}) => (
+<div className={`card ${feedback}`} onClick={()=>clickFonction(card)}>
+    <span className="symbol">
+        {feedback === 'hidden' ? HIDDEN_SYMBOL : card}
+    </span>
+</div>
+)
 
 export default Card

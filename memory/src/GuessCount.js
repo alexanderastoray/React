@@ -1,6 +1,10 @@
 import React from "react";
 import './GuessCount.css'
 
-const GuessCount = () => <div class="guesses"></div>
+const GuessCount = ({guesses}) => (
+<div className="guesses">
+    {guesses}
+</div>
+)
 
 export default GuessCount

@@ -8,6 +8,7 @@ import HallOfFame,{FAKE_OF} from "./HallOfFame";
 
 const SIDE = 6
 const SYMBOLS = '😀🎉💖🎩🐶🐱🦄🐬🌍🌛🌞💫🍎🍌🍓🍐🍟🍿'
+const VISUAL_PAUSE_MSEC = 750
 
 class App extends Component{
   state = {
@@ -47,6 +48,7 @@ class App extends Component{
   //Arow fx for bind 
   handleCardClick = index => {
     const { currentPair } = this.state
+    //console.log('handleCardClick : index' + index +  'currentPair '+ currentPair)
 
     if(currentPair.length === 2){
       return
@@ -54,9 +56,29 @@ class App extends Component{
 
     if(currentPair.length === 0){
       this.setState({ currentPair: [index]})
+      return
     }
 
     this.handleNewPairClosedBy(index)
+  }
+
+  handleNewPairClosedBy(index){
+    const { cards, currentPair, guesses, matchedCardIndices } = this.state
+
+    //console.log('handleNewPairClosedBy : index' + index +  'currentPair '+ currentPair[0])
+
+    const newPair = [currentPair[0], index]
+    const newGuesses = guesses + 1
+    const matched = cards[newPair[0]] === cards[newPair[1]]
+    this.setState({ currentPair: newPair, guesses: newGuesses})
+
+    //console.log('handleNewPairClosedBy : newPair' + newPair +  'currentPair '+ currentPair)
+    
+    if(matched){
+      this.setState({matchedCardIndices: [...matchedCardIndices, ...newPair] })
+    }
+
+    setTimeout(() => this.setState({currentPair: []}), VISUAL_PAUSE_MSEC)
   }
 
   render() {

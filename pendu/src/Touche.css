@@ -1,0 +1,28 @@
+.clavier > .touche {
+    font-size: 2em;
+    flex: 1 1 calc(100% / 6 - 0.4em);
+    outline: 0.08em solid silver;
+    margin: 0.2em;
+    display: flex;
+    cursor: default;
+  }
+  
+  .clavier > .touche.hidden {
+    background: silver;
+  }
+  
+  .clavier > .touche.justMatched,
+  .clavier > .touche.justMismatched {
+    outline: 0.1em solid green;
+  }
+  .clavier > .touche.justMismatched {
+    outline-color: red;
+  }
+  
+  .clavier > .touche.visible {
+    cursor: not-allowed;
+  }
+  
+  .clavier > .touche > .symbol {
+    margin: auto;
+  }

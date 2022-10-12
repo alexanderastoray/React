@@ -1,8 +1,8 @@
 import React from "react"
 import './Touche.css'
 
-const Touche = ({touche, index, clickFonction}) => (
-<div className="touche" onClick={()=>clickFonction(touche)}>
+const Touche = ({touche, feedback, index, clickFonction}) => (
+<div className={`touche ${feedback}`} onClick={()=>clickFonction(touche)}>
     <span className="symbol">
         {touche}
     </span>

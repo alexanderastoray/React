@@ -45,7 +45,7 @@ class App extends Component{
     return indexMatched ? 'visible' : 'hidden'
   }
 
-  //Arow fx for bind 
+  //Arow fx for bind --> pour ne pas perdre le this avec // = (index) => { // on perd le this 
   handleCardClick = index => {
     const { currentPair } = this.state
     //console.log('handleCardClick : index' + index +  'currentPair '+ currentPair)
@@ -72,13 +72,15 @@ class App extends Component{
     const matched = cards[newPair[0]] === cards[newPair[1]]
     this.setState({ currentPair: newPair, guesses: newGuesses})
 
-    //console.log('handleNewPairClosedBy : newPair' + newPair +  'currentPair '+ currentPair)
+    //console.log('handleNewPairClosedBy : newPair' + newPair +  ' currentPair ' + currentPair + ' guesses' + guesses + ' matched' + matched)
     
     if(matched){
       this.setState({matchedCardIndices: [...matchedCardIndices, ...newPair] })
     }
 
     setTimeout(() => this.setState({currentPair: []}), VISUAL_PAUSE_MSEC)
+    //setTimeout(() => this.setState(console.log('handleNewPairClosedByPause : newPair' + newPair +  'currentPair '+ currentPair)), 800)
+    
   }
 
   render() {

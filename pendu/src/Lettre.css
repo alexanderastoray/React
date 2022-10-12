@@ -1,0 +1,12 @@
+.lettre {
+    display: inline-block;
+    height: 43px;
+    width: 53px;
+    border: 1px solid #fff;
+    line-height: 40px;
+    font-size: 20pt;
+    color: darkgoldenrod;
+    text-decoration: none;
+    text-align: center;
+    background: #c0c0c0;
+}

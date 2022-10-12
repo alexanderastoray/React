@@ -1,8 +1,8 @@
 .clavier {
   display: flex;
   flex-wrap: wrap;
-  width: 400px;
+  width: 450px;
   margin: auto;
   user-select: none;
-  margin-top: 50px;
+  margin-top: 70px;
 }
